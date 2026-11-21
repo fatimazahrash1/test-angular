@@ -1,0 +1,22 @@
+.rayon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.panier-debug {
+  margin-top: 1rem;
+}
+
+button {
+  cursor: pointer;
+  padding: 0.4rem 0.75rem;
+}

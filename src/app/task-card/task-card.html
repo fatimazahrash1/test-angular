@@ -1,0 +1,8 @@
+<div class="task-card" [class.is-done]="task().done">
+  <p>{{ task().dueDate | date:'dd/MM/yyyy' }}</p>
+  <p [style.color]="task().title | titleColor">{{ task().title | uppercase }}</p>
+
+  <button type="button" (click)="markDone()">
+    {{ task().done ? 'Terminée' : 'Marquer terminée' }}
+  </button>
+</div>

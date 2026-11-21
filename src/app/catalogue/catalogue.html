@@ -1,0 +1,36 @@
+<header class="rayon">
+  <h2>Catalogue</h2>
+  <p>Panier : {{ nombreArticles() }} article(s) — Total : {{ totalPanier() }} DH</p>
+  <button type="button" (click)="viderPanier()">Vider le panier (set)</button>
+</header>
+
+<section class="grille">
+  <!-- [] = données vers l'enfant ; () = événement venant de l'enfant -->
+  @for (p of produits(); track p.id) {
+    <app-produit-card
+      [produit]="p"
+      (ajoute)="ajouterAuPanier($event)"
+    />
+  }
+</section>
+
+<hr />
+
+<section class="panier-debug">
+  <h3>Contenu du panier</h3>
+
+  @if (panier().length === 0) {
+    <p>Le panier est vide.</p>
+  } @else {
+    <ul>
+      @for (item of panier(); track $index) {
+        <li>{{ item.nom }} — {{ item.prix }} DH</li>
+      }
+    </ul>
+  }
+
+  <!-- Bouton optionnel pour tester directement le piège .push() sur le 1er produit -->
+  <button type="button" (click)="ajouterAvecPushPiege(produits()[0])">
+    Tester .push() piège (1er produit)
+  </button>
+</section>
